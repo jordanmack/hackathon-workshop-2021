@@ -1,1 +1,1 @@
-# gitcoin-workshop-2021
+# Hackathon Workshop 2021
