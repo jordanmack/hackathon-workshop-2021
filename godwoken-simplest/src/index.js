@@ -2,7 +2,6 @@
 
 import Web3 from 'web3';
 import {PolyjuiceHttpProvider} from '@polyjuice-provider/web3';
-import {AddressTranslator} from 'nervos-godwoken-integration';
 
 const WEB3_PROVIDER_URL = 'https://godwoken-testnet-web3-rpc.ckbapp.dev';
 const CONTRACT = '0x7252D904e04C1b5b10bF4Fb5A0b5c2863044871A';
@@ -10,7 +9,6 @@ const ABI = [{"inputs": [],"name":"get","outputs": [{"internalType":"uint256","n
 const DEFAULT_SEND_OPTIONS = {gas: 6000000};
 
 let address;
-let address2;
 let balance;
 let contract;
 let getValue;
@@ -18,7 +16,6 @@ let getValue;
 function displayInfo()
 {
 	document.getElementById('address').innerText = address;
-	document.getElementById('address2').innerText = address2;
 	document.getElementById('balance').innerText = (balance/100000000n).toLocaleString() + ' CKB';
 	document.getElementById('contract').innerText = CONTRACT;
 	document.getElementById('get').innerText = getValue;
@@ -27,7 +24,6 @@ function displayInfo()
 async function refreshValues(web3)
 {
 	address = window.ethereum.selectedAddress;
-	address2 = (new AddressTranslator()).ethAddressToGodwokenShortAddress(address);
 	balance = BigInt(await web3.eth.getBalance(address));
 	contract = new web3.eth.Contract(ABI, CONTRACT);
 	getValue = await contract.methods.get().call();
