@@ -19,7 +19,7 @@ function displayInfo()
 {
 	document.getElementById('address').innerText = address;
 	document.getElementById('address2').innerText = address2;
-	document.getElementById('balance').innerText = (balance/100000000n).toLocaleString() + ' CKB';
+	document.getElementById('balance').innerText = (balance/100_000_000n).toLocaleString() + ' CKB';
 	document.getElementById('contract').innerText = CONTRACT;
 	document.getElementById('get').innerText = getValue;
 }
