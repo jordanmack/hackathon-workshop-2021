@@ -49,7 +49,7 @@ async function main()
 	await window.ethereum.enable();
 
 	await refreshValues(web3);
-	displayInfo(web3);
+	displayInfo();
 
 	document.getElementById('set-button').addEventListener('click', setValue);
 	document.getElementById('refresh-button').addEventListener('click', async ()=>{await refreshValues(web3); displayInfo();});
